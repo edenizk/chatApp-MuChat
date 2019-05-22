@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "671769772729",
+    "firebase_url": "https://muchat-db-decf9.firebaseio.com",
+    "project_id": "muchat-db-decf9",
+    "storage_bucket": "muchat-db-decf9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:671769772729:android:d9e68ecc70e59f14",
+        "android_client_info": {
+          "package_name": "com.example.muchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "671769772729-b5tmee6ih7dju1sn50q7dptu3ibr5297.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.muchat",
+            "certificate_hash": "edd0b96a335aff9dce02c47245fc1f5969740bc5"
+          }
+        },
+        {
+          "client_id": "671769772729-5ekqjor8a1fkfgs7526v4f6snrhois04.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmDa75dSCPf4DuL1bsSY-R45O5SkaYJ2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "671769772729-5ekqjor8a1fkfgs7526v4f6snrhois04.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
