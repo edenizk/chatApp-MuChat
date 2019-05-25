@@ -6,7 +6,7 @@ import 'MuBar.dart';
 
 class ChatRoom extends StatefulWidget{
   final Friends friendData;
-  Map<String, dynamic> profileData;
+  final Map<String, dynamic> profileData;
 
   ChatRoom({Key key, this.friendData, this.profileData}) : super(key: key);
 
@@ -16,7 +16,8 @@ class ChatRoom extends StatefulWidget{
 
 class ChatRoomState extends State<ChatRoom>{
   TextEditingController _textController = TextEditingController();
-
+  ScrollController _scrollController = new ScrollController();
+  
   @override
   Widget build(BuildContext context){
     return MaterialApp(
@@ -29,13 +30,14 @@ class ChatRoomState extends State<ChatRoom>{
         photoURL: 
         widget.friendData.photoURL != null ? widget.friendData.photoURL : 
         'https://static-cdn.jtvnw.net/jtv_user_pictures/bb0747cd-0c9f-4aac-aea5-1c9e2d5035e1-profile_image-300x300.png',
+        showSetting: false,
+        context: context,
         ),
         body:Column(
           children:<Widget>[
           Flexible(
             child: _chatMessages(context, widget.friendData.chatRoomID)
           ),
-
           Wrap(
             children:<Widget>[
                 Container(
@@ -50,26 +52,23 @@ class ChatRoomState extends State<ChatRoom>{
                     IconButton(
                       icon: new Icon(Icons.attach_file, color: kDefaultTheme.primaryColorDark,),
                       highlightColor: kDefaultTheme.primaryColorLight,
-                                
                       onPressed: () => null, // add attachments
                     ),
                     Expanded(
-                    child:Container(
-                      
-                        child:TextField(
-                        decoration: InputDecoration(
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(width: 2,color: kDefaultTheme.primaryColorLight)
-                          )
-                        ),
-                        controller: _textController,
+                      child:Container(
+                          child:TextField(
+                          decoration: InputDecoration(
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(width: 2,color: kDefaultTheme.primaryColorLight)
+                            )
+                          ),
+                          controller: _textController,
+                       ),
                       ),
-                    ),
                     ),
                     IconButton(
                       icon: new Icon(Icons.send, color: kDefaultTheme.primaryColorDark,),
-                      highlightColor: kDefaultTheme.primaryColorLight,
-                                
+                      highlightColor: kDefaultTheme.primaryColorLight,     
                       onPressed: () => _send(_textController.text),
                     )
                   ],
@@ -119,13 +118,13 @@ class ChatRoomState extends State<ChatRoom>{
       margin: new EdgeInsets.only(top: 20.0),
       child: Text('Say Hi :)'),
       );
-      
  }
 
  Widget _chatMessagesList(BuildContext context, List<DocumentSnapshot> snapshot) {
-
+   
    return ListView(
      padding: const EdgeInsets.only(top: 20.0),
+     controller: _scrollController,
      children: snapshot.map((data) => _chatMessagesListItem(context, data)).toList(),
    );
  }
