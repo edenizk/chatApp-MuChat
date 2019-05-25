@@ -2,12 +2,22 @@ import 'package:flutter/material.dart';
 import '../auth.dart';
 import 'MainPage.dart';
 
+final ThemeData kDefaultTheme = new ThemeData(
+  fontFamily: 'Montserrat',
+  primaryColor: Color(0xFFF9F9F9),
+  accentColor: Color(0xFFF9F9F9),
+  backgroundColor: Color(0xFFF9F9F9),
+  primaryColorLight: Color(0xFFF87C00),
+  primaryColorDark: Color(0xFF393E41)
+);
+
 class LoginPage extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
       title: 'MuChat',
       debugShowCheckedModeBanner: false,
+      theme: kDefaultTheme,
       home: Scaffold(
         body:Container(
           width: double.infinity,
