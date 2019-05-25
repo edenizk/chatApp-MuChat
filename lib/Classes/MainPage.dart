@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:muchat/Classes/Loading.dart';
 import 'package:muchat/Classes/MuBar.dart';
 import '../auth.dart';
 import 'Friends.dart';
@@ -42,8 +43,8 @@ class MainPageState extends State<MainPage>{
 
   @override
   Widget build(BuildContext context) {
-    if(_profile == null)
-      return LinearProgressIndicator();
+    if(_profile == null) // try to change this with _loading == false
+      return LoadingPage();
 
     return Scaffold(
       appBar: MuBar(
@@ -52,6 +53,7 @@ class MainPageState extends State<MainPage>{
         photoURL: 
         _profile.containsKey('photoURL') ? _profile['photoURL'] : 
         'https://static-cdn.jtvnw.net/jtv_user_pictures/bb0747cd-0c9f-4aac-aea5-1c9e2d5035e1-profile_image-300x300.png',
+        showSetting: true,
         context: context
       ),
       body: 
